@@ -1,5 +1,5 @@
-## NODE MODULES ##
+### NODE MODULES ###
 node_modules
 
-## VS FILE ##
-.vscode
+### VS Code ###
+.vscode/
