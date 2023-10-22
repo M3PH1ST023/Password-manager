@@ -14,7 +14,11 @@ public class BackendApplication {
 	}
 	@RequestMapping("/")
 	public String root(){
-		return "root";
+		return 
+		"{\n"+
+			"/api/v1/addCreds : Add new credential,\n"+
+			"/api/v1/addUser : Add new user\n"+
+		"}";
 	}
 
 }
