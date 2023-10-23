@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request
 from connection import connectCreds
 from bson.objectid import ObjectId
+from flask_cors import cross_origin
 
 # POST adds credential for specific user
+@cross_origin(origin="http://127.0.0.1:3000")
 def addCreds():
     try:
         data = request.json
@@ -12,6 +14,7 @@ def addCreds():
         Error(e)
 
 # GET all users credentials
+@cross_origin(origin="http://127.0.0.1:3000")
 def getCreds():
     try:
         data = []
@@ -30,6 +33,7 @@ def getCreds():
         Error(e)
 
 # GET credential of specific user
+@cross_origin(origin="http://127.0.0.1:3000")
 def getCredById():
     try:
         param = request.args.get('userId')
@@ -48,7 +52,20 @@ def getCredById():
     except Exception as e:
         Error(e)
 
-# DELETE specific crdential with credId
+# PUT the mentioned credential
+@cross_origin(origin="http://127.0.0.1:3000")
+def putCreds():
+    try:
+        data = request.get_json()
+        credId = data['credId']
+        existing = connectCreds().find_one({'credId':int(credId)})
+        connectCreds().update_one({'credId':int(credId)}, {'$set':data})
+        return "success"
+    except Exception as e:
+        Error(e)
+
+# DELETE specific credential with credId
+@cross_origin(origin="http://127.0.0.1:3000")
 def deleteCredById():
     try:
         param = request.args.get('credId')
