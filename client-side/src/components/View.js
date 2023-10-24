@@ -5,7 +5,7 @@ const View = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
         axios
-            .get("http://127.0.0.1:5000/api/v1/getCredsById?userId=1")
+            .get("http://127.0.0.1:5000/api/v1/getCredsById?userId=2")
             .then((resp) => {
                 setData(resp.data);
             })
