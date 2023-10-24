@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from connection import connectUsers
+from flask_cors import cross_origin
 
 # POST adds credential for specific user
 @cross_origin(origin="http://127.0.0.1:3000")
