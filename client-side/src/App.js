@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Add from "./components/Add";
 import Edit from "./components/Edit";
 import View from "./components/View";
+import Delete from "./components/Delete";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/add" Component={Add} />
                     <Route path="/edit" Component={Edit} />
                     <Route path="/show" Component={View} />
+                    <Route path="/delete" Component={Delete} />
                 </Routes>
             </Router>
         </div>

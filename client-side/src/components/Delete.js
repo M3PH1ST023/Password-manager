@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import "../css/pages.css";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-const View = () => {
+import del from "../assets/bin.png";
+
+const Delete = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
         axios
@@ -22,6 +23,7 @@ const View = () => {
                     <th>Email</th>
                     <th>URL</th>
                     <th>Comments</th>
+                    <th></th>
                 </tr>
                 {data.map((item, index) => (
                     <tr>
@@ -30,10 +32,18 @@ const View = () => {
                         <td key={index}>{item.userEmail}</td>
                         <td key={index}>{item.url}</td>
                         <td key={index}>{item.comments}</td>
+                        <td>
+                            <img
+                                src={del}
+                                alt="submit"
+                                width="25px"
+                                height="25px"
+                            />
+                        </td>
                     </tr>
                 ))}
             </table>
         </div>
     );
 };
-export default View;
+export default Delete;
